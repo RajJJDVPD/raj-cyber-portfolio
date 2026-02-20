@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { User, MapPin, GraduationCap, Target } from "lucide-react";
+import { MapPin, GraduationCap, Target } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -26,9 +26,14 @@ const AboutSection = () => {
             className="space-y-4"
           >
             <p className="text-card-foreground leading-relaxed text-sm">
-              Cybersecurity undergraduate passionate about ethical hacking and digital forensics.
-              Equipped with skills in Python, Linux, and network security, I'm driven to apply
-              cybersecurity knowledge to protect digital infrastructure and solve real-world security challenges.
+              I'm Yarra Rajkumar — a B.Tech Cyber Security student at KIET with a strong focus on
+              ethical hacking, digital forensics, and malware analysis. I build security tools,
+              break things to understand how they work, and help secure digital systems.
+            </p>
+            <p className="text-card-foreground leading-relaxed text-sm">
+              With hands-on experience from internships at Palo Alto Networks, Zscaler, and even the
+              Cyber Crime Department of Vizag Police, I bring real-world security knowledge. I'm also
+              an NCC Cadet and have delivered tech sessions on drones and cybersecurity awareness.
             </p>
 
             <div className="space-y-3 text-sm">
