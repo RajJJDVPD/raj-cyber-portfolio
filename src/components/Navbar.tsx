@@ -48,6 +48,7 @@ const Navbar = () => {
           <a
             href="/rajkumar_resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="text-xs font-mono border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-all"
           >
             Resume
