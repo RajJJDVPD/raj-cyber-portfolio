@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Terminal, ChevronDown } from "lucide-react";
+import { Shield, Terminal, ChevronDown, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
