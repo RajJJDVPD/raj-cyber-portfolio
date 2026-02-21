@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+🛡️ CYBER DEFENSE PORTFOLIO
+<p align="center"> <img src="https://readme-typing-svg.herokuapp.com?color=00FF00&center=true&vCenter=true&lines=Cybersecurity+Student;Ethical+Hacker;Security+Tool+Developer;Python+Automation+Builder;Future+Security+Researcher" /> </p> <p align="center"> <img src="https://img.shields.io/badge/Kali-Linux-black?style=for-the-badge&logo=kalilinux"> <img src="https://img.shields.io/badge/Python-Security-blue?style=for-the-badge&logo=python"> <img src="https://img.shields.io/badge/VAPT-Learner-red?style=for-the-badge"> <img src="https://img.shields.io/badge/Malware-Analysis-purple?style=for-the-badge"> </p>
+👨‍💻 About Me
 
-## Project info
+Hi, I'm Y Rajkumar — a passionate Cyber Security student focused on building real-world security tools and exploring both offensive and defensive security.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🎓 B.Tech Cyber Security — KIET
+🛡️ Ethical Hacking | Malware Analysis | Digital Forensics
+⚡ Python Security Tool Developer
+🏆 Skill India Certified
 
-## How can I edit this code?
+🌐 Live Portfolio
 
-There are several ways of editing your application.
+🚀 Live Site:
+👉 https://cyber-defense-portfolio.vercel.app
 
-**Use Lovable**
+⚔️ Core Skills
+🛡️ Security Tools
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Nmap • Wireshark • Hashcat • YARA • Burp Suite • Sqlmap • BeEF
 
-Changes made via Lovable will be committed automatically to this repo.
+💻 Programming
 
-**Use your preferred IDE**
+Python • C • JavaScript • TypeScript • Flask • Tkinter
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🔐 Cyber Domains
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Ethical Hacking
+Malware Analysis
+Digital Forensics
+Web Security
+Vulnerability Assessment
 
-Follow these steps:
+⚙️ Platforms
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Kali Linux • Windows • VMware • GitHub • Vercel
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+🧨 Featured Projects
+🔥 CYBER-REQ
 
-# Step 3: Install the necessary dependencies.
-npm i
+GUI-based cybersecurity tool built using Python Tkinter to send controlled HTTP requests with delay and logging.
+💡 Built for ethical testing and automation learning.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+🦠 YARA Malware Scanner
 
-**Edit a file directly in GitHub**
+Flask-based web malware scanner using custom YARA rules to detect malicious patterns.
+Includes rule severity, detection type, and scan reporting.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🔍 Digital Forensics Toolkit
 
-**Use GitHub Codespaces**
+Python-based toolkit for:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+File hash integrity checking
 
-## What technologies are used for this project?
+Log analysis
 
-This project is built with:
+Basic forensic investigation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🚀 Tech Stack
 
-## How can I deploy this project?
+React + Vite
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+TypeScript
 
-## Can I connect a custom domain to my Lovable project?
+Tailwind CSS
 
-Yes, you can!
+shadcn/ui
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Vercel Hosting
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🧠 Currently Learning
+
+Advanced VAPT
+
+Exploit Development Basics
+
+Red Team Tooling
+
+OSINT Techniques
+
+📬 Connect With Me
+<p align="center"> <a href="mailto:rajkumar0yarra@gmail.com"> <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail"> </a> <a href="https://github.com/RajJJDVPD"> <img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github"> </a> <a href="https://www.linkedin.com/in/yarra-raj-kumar-363833297/"> <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin"> </a> </p>
+⚠️ Ethical Disclaimer
+
+All tools and projects are created strictly for educational and ethical cybersecurity purposes only.
+I do not support or promote illegal activities.
+
+⭐ Support
+
+If you like this project, consider giving it a ⭐ and following my journey in cybersecurity 🚀🛡️
