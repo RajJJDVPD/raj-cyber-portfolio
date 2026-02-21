@@ -18,7 +18,7 @@ const contacts = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "yarra-raj-kumar",
-    href: "https://linkedin.com/in/yarra-raj-kumar-363833297",
+    href: "https://www.linkedin.com/in/rajkumar-yarra-363833297/",
   },
   {
     icon: Github,

@@ -7,26 +7,34 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import internshipPlaceholder from "@/assets/internship-placeholder.jpg";
+import internshipPaloalto from "@/assets/internship-paloalto.jpg";
+import internshipEthicalHacking from "@/assets/internship-ethical-hacking.jpg";
+import internshipNetworking from "@/assets/internship-networking.jpg";
 import internshipCybercrime from "@/assets/internship-cybercrime.jpg";
+import internshipRedynox from "@/assets/internship-redynox.jpg";
+import certPaloalto from "@/assets/cert-paloalto.jpg";
+import certSaviynt from "@/assets/cert-saviynt.jpg";
+import certRedynox from "@/assets/cert-redynox.jpg";
 import certPlaceholder from "@/assets/cert-placeholder.jpg";
-import achievementPlaceholder from "@/assets/achievement-placeholder.jpg";
+import achievementDrone from "@/assets/achievement-drone.jpg";
+import achievementNccLecture from "@/assets/achievement-ncc-lecture.jpg";
+import achievementCybercrime from "@/assets/achievement-cybercrime.jpg";
 
 const internships = [
   {
     title: "Cybersecurity Internship",
     org: "Palo Alto Networks (AICTE Cohort 9)",
-    image: internshipPlaceholder,
+    image: internshipPaloalto,
   },
   {
     title: "Ethical Hacking Internship",
     org: "AICTE (Cohort 10)",
-    image: internshipPlaceholder,
+    image: internshipEthicalHacking,
   },
   {
     title: "Networking Internship",
     org: "Zscaler (AICTE Cohort 11)",
-    image: internshipPlaceholder,
+    image: internshipNetworking,
   },
   {
     title: "Cyber Crime Dept. Internship",
@@ -36,22 +44,22 @@ const internships = [
   {
     title: "Cybersecurity Internship",
     org: "Redynox — Jul–Aug 2025",
-    image: internshipPlaceholder,
+    image: internshipRedynox,
   },
 ];
 
 const certifications = [
-  { name: "Cybersecurity Essentials – Palo Alto Networks", image: certPlaceholder },
-  { name: "Saviynt Identity Security (ISAA) Certification", image: certPlaceholder },
-  { name: "Redynox Cybersecurity Internship Certificate (2025)", image: certPlaceholder },
+  { name: "Cybersecurity Essentials – Palo Alto Networks", image: certPaloalto },
+  { name: "Saviynt Identity Security (ISAA) Certification", image: certSaviynt },
+  { name: "Redynox Cybersecurity Internship Certificate (2025)", image: certRedynox },
   { name: "IIFIS Certification (Globally Verified) – Pursuing", image: certPlaceholder },
   { name: "NASSCOM Government Certification – Pursuing", image: certPlaceholder },
 ];
 
 const achievements = [
-  "Delivered a technical session on Drone Technology",
-  "Cybersecurity awareness lecture for NCC Cadets",
-  "Completed internship at Cyber Crime Dept., Vizag",
+  { text: "Delivered a technical session on Drone Technology", image: achievementDrone },
+  { text: "Cybersecurity awareness lecture for NCC Cadets", image: achievementNccLecture },
+  { text: "Completed internship at Cyber Crime Dept., Vizag", image: achievementCybercrime },
 ];
 
 const ExperienceSection = () => {
@@ -143,12 +151,12 @@ const ExperienceSection = () => {
                 className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group"
               >
                 <div className="relative h-20 overflow-hidden">
-                  <img src={achievementPlaceholder} alt={a} className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity" />
+                  <img src={a.image} alt={a.text} className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
                 </div>
                 <div className="px-2 py-1.5">
                   <p className="text-[10px] font-mono text-muted-foreground">
-                    <span className="text-primary">[+]</span> {a}
+                    <span className="text-primary">[+]</span> {a.text}
                   </p>
                 </div>
               </motion.div>

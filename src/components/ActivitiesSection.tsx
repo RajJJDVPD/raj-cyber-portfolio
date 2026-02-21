@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
-import activityNcc from "@/assets/activity-ncc-placeholder.jpg";
-import activityScuba from "@/assets/activity-scuba-placeholder.jpg";
-import activityShip from "@/assets/activity-ship-placeholder.jpg";
+import activityNcc from "@/assets/activity-ncc.jpg";
+import activityScuba from "@/assets/activity-scuba.jpg";
+import activityShip from "@/assets/activity-ship.jpg";
 import activityHackathon from "@/assets/activity-hackathon-placeholder.jpg";
 import activityBsides from "@/assets/activity-bsides-placeholder.jpg";
 
