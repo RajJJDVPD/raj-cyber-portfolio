@@ -57,9 +57,22 @@ const certifications = [
 ];
 
 const achievements = [
-  { text: "Delivered a technical session on Drone Technology", image: achievementDrone },
-  { text: "Cybersecurity awareness lecture for NCC Cadets", image: achievementNccLecture },
-  { text: "Completed internship at Cyber Crime Dept., Vizag", image: achievementCybercrime },
+  {
+    text: "Delivered a technical session on Drone Technology",
+    image: achievementDrone,
+    detail: "Presented an in-depth technical session on modern drone technology, covering UAV architecture, flight control systems, and real-world applications in surveillance and disaster management. The session was attended by students and faculty, sparking discussions on the intersection of drones with cybersecurity and ethical considerations in autonomous systems.",
+  },
+  {
+    text: "Cybersecurity awareness lecture for NCC Cadets",
+    image: achievementNccLecture,
+    objectPos: "center 30%",
+    detail: "Conducted an interactive cybersecurity awareness session for NCC cadets, educating them on common cyber threats including phishing, social engineering, and password security. Demonstrated live examples of how attackers exploit vulnerabilities, and trained cadets on best practices for maintaining digital hygiene. The lecture emphasized the critical role of cybersecurity in national defense.",
+  },
+  {
+    text: "Completed internship at Cyber Crime Dept., Vizag",
+    image: achievementCybercrime,
+    detail: "Successfully completed a two-week internship at the Cyber Crime Department, Visakhapatnam Police. Gained hands-on exposure to real-world cyber crime investigation procedures, digital evidence collection, and forensic analysis techniques. Worked alongside experienced officers to understand case filing, FIR processes for cyber offenses, and the legal framework governing cyber crimes in India.",
+  },
 ];
 
 const ExperienceSection = () => {
