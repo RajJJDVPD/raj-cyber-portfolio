@@ -4,22 +4,22 @@ const skillCategories = [
   {
     title: "SECURITY_TOOLS",
     icon: "🛡️",
-    skills: ["Nmap", "Wireshark", "Hashcat", "YARA", "Burp Suite"],
+    skills: ["Nmap", "Wireshark", "Hashcat", "YARA", "Burp Suite", "Sqlmap", "John the Ripper", "BeEF Framework", "Volatility (Basic)"],
   },
   {
     title: "PROGRAMMING",
     icon: "💻",
-    skills: ["Python", "C", "HTML", "CSS", "Flask"],
+    skills: ["Python (Automation + Security)", "C (Basics)", "HTML", "CSS", "Flask", "Tkinter (GUI)", "JavaScript (Basic)"],
   },
   {
     title: "CYBER_DOMAINS",
     icon: "🔐",
-    skills: ["Ethical Hacking", "Malware Analysis", "Digital Forensics", "Web Security"],
+    skills: ["Ethical Hacking", "Network Scanning & Recon", "Malware Analysis (YARA)", "Digital Forensics", "Web Security (XSS, SQLi)", "Vulnerability Assessment", "OSINT (Basic)"],
   },
   {
-    title: "PLATFORMS",
+    title: "PLATFORMS_&_ENV",
     icon: "⚙️",
-    skills: ["Kali Linux", "Windows", "VMware", "VS Code"],
+    skills: ["Kali Linux", "Windows", "VMware / VirtualBox", "VS Code", "Git & GitHub", "Render (Deployment)"],
   },
 ];
 

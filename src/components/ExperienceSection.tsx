@@ -148,15 +148,15 @@ const ExperienceSection = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.1 }}
-                className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group"
+                className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group relative cursor-pointer"
               >
-                <div className="relative h-20 overflow-hidden">
-                  <img src={a.image} alt={a.text} className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                <div className="relative h-28 overflow-hidden">
+                  <img src={a.image} alt={a.text} className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-30 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 </div>
-                <div className="px-2 py-1.5">
-                  <p className="text-[10px] font-mono text-muted-foreground">
-                    <span className="text-primary">[+]</span> {a.text}
+                <div className="absolute inset-0 flex items-center justify-center p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/85">
+                  <p className="text-[10px] font-mono text-primary text-center leading-relaxed">
+                    <span className="text-secondary">[+]</span> {a.text}
                   </p>
                 </div>
               </motion.div>

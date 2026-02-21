@@ -47,8 +47,7 @@ const Navbar = () => {
           ))}
           <a
             href="/rajkumar_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="text-xs font-mono border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-all"
           >
             Resume
@@ -83,8 +82,7 @@ const Navbar = () => {
               ))}
               <a
                 href="/rajkumar_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="text-sm font-mono border border-primary text-primary px-3 py-2 text-center hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 Resume
