@@ -164,13 +164,27 @@ const ExperienceSection = () => {
                 className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group relative cursor-pointer"
               >
                 <div className="relative h-28 overflow-hidden">
-                  <img src={a.image} alt={a.text} className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-30 transition-opacity duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                  <img
+                    src={a.image}
+                    alt={a.text}
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:h-full"
+                    style={{ objectPosition: a.objectPos || "top" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent group-hover:opacity-0 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-2 group-hover:opacity-0 transition-opacity duration-300">
+                    <p className="text-[10px] font-mono text-primary leading-tight">
+                      <span className="text-secondary">[+]</span> {a.text}
+                    </p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/85">
-                  <p className="text-[10px] font-mono text-primary text-center leading-relaxed">
-                    <span className="text-secondary">[+]</span> {a.text}
-                  </p>
+                <div className="absolute inset-0 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/90 overflow-y-auto">
+                  <div className="h-20 shrink-0 overflow-hidden">
+                    <img src={a.image} alt={a.text} className="w-full h-full object-cover" style={{ objectPosition: a.objectPos || "top" }} />
+                  </div>
+                  <div className="p-3 flex-1">
+                    <h4 className="text-[10px] font-mono text-primary mb-1.5 font-semibold">{a.text}</h4>
+                    <p className="text-[9px] font-mono text-card-foreground/80 leading-relaxed">{a.detail}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
