@@ -57,9 +57,22 @@ const certifications = [
 ];
 
 const achievements = [
-  { text: "Delivered a technical session on Drone Technology", image: achievementDrone },
-  { text: "Cybersecurity awareness lecture for NCC Cadets", image: achievementNccLecture },
-  { text: "Completed internship at Cyber Crime Dept., Vizag", image: achievementCybercrime },
+  {
+    text: "Delivered a technical session on Drone Technology",
+    image: achievementDrone,
+    detail: "Presented an in-depth technical session on modern drone technology, covering UAV architecture, flight control systems, and real-world applications in surveillance and disaster management. The session was attended by students and faculty, sparking discussions on the intersection of drones with cybersecurity and ethical considerations in autonomous systems.",
+  },
+  {
+    text: "Cybersecurity awareness lecture for NCC Cadets",
+    image: achievementNccLecture,
+    objectPos: "center 30%",
+    detail: "Conducted an interactive cybersecurity awareness session for NCC cadets, educating them on common cyber threats including phishing, social engineering, and password security. Demonstrated live examples of how attackers exploit vulnerabilities, and trained cadets on best practices for maintaining digital hygiene. The lecture emphasized the critical role of cybersecurity in national defense.",
+  },
+  {
+    text: "Completed internship at Cyber Crime Dept., Vizag",
+    image: achievementCybercrime,
+    detail: "Successfully completed a two-week internship at the Cyber Crime Department, Visakhapatnam Police. Gained hands-on exposure to real-world cyber crime investigation procedures, digital evidence collection, and forensic analysis techniques. Worked alongside experienced officers to understand case filing, FIR processes for cyber offenses, and the legal framework governing cyber crimes in India.",
+  },
 ];
 
 const ExperienceSection = () => {
@@ -151,13 +164,27 @@ const ExperienceSection = () => {
                 className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group relative cursor-pointer"
               >
                 <div className="relative h-28 overflow-hidden">
-                  <img src={a.image} alt={a.text} className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-30 transition-opacity duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                  <img
+                    src={a.image}
+                    alt={a.text}
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:h-full"
+                    style={{ objectPosition: a.objectPos || "top" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent group-hover:opacity-0 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-2 group-hover:opacity-0 transition-opacity duration-300">
+                    <p className="text-[10px] font-mono text-primary leading-tight">
+                      <span className="text-secondary">[+]</span> {a.text}
+                    </p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/85">
-                  <p className="text-[10px] font-mono text-primary text-center leading-relaxed">
-                    <span className="text-secondary">[+]</span> {a.text}
-                  </p>
+                <div className="absolute inset-0 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/90 overflow-y-auto">
+                  <div className="h-20 shrink-0 overflow-hidden">
+                    <img src={a.image} alt={a.text} className="w-full h-full object-cover" style={{ objectPosition: a.objectPos || "top" }} />
+                  </div>
+                  <div className="p-3 flex-1">
+                    <h4 className="text-[10px] font-mono text-primary mb-1.5 font-semibold">{a.text}</h4>
+                    <p className="text-[9px] font-mono text-card-foreground/80 leading-relaxed">{a.detail}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
