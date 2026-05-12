@@ -15,6 +15,7 @@ import internshipRedynox from "@/assets/internship-redynox.jpg";
 import certPaloalto from "@/assets/cert-paloalto.jpg";
 import certSaviynt from "@/assets/cert-saviynt.jpg";
 import certRedynox from "@/assets/cert-redynox.jpg";
+import certGoogleFoundations from "@/assets/cert-google-foundations.jpg";
 import certPlaceholder from "@/assets/cert-placeholder.jpg";
 import achievementDrone from "@/assets/achievement-drone.jpg";
 import achievementNccLecture from "@/assets/achievement-ncc-lecture.jpg";
@@ -49,6 +50,7 @@ const internships = [
 ];
 
 const certifications = [
+  { name: "Foundations of Cybersecurity – Google", image: certGoogleFoundations },
   { name: "Cybersecurity Essentials – Palo Alto Networks", image: certPaloalto },
   { name: "Saviynt Identity Security (ISAA) Certification", image: certSaviynt },
   { name: "Redynox Cybersecurity Internship Certificate (2025)", image: certRedynox },
