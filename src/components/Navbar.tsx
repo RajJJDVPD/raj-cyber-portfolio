@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Shield, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,6 +8,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Security Research", href: "#security-research" },
   { label: "Experience", href: "#experience" },
   { label: "Activities", href: "#activities" },
   { label: "Contact", href: "#contact" },
@@ -15,6 +17,9 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -29,7 +34,10 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 text-primary font-display text-sm tracking-widest neon-text">
+        <a 
+          href={isHome ? "#home" : "/#home"} 
+          className="flex items-center gap-2 text-primary font-display text-sm tracking-widest neon-text"
+        >
           <Shield className="w-5 h-5" />
           RK_SEC
         </a>
@@ -39,7 +47,7 @@ const Navbar = () => {
           {navLinks.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={isHome ? l.href : `/${l.href}`}
               className="text-muted-foreground text-xs font-mono hover:text-primary transition-colors uppercase tracking-wider"
             >
               {l.label}
@@ -73,7 +81,7 @@ const Navbar = () => {
               {navLinks.map((l) => (
                 <a
                   key={l.href}
-                  href={l.href}
+                  href={isHome ? l.href : `/${l.href}`}
                   onClick={() => setOpen(false)}
                   className="text-muted-foreground text-sm font-mono hover:text-primary transition-colors"
                 >
@@ -96,3 +104,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

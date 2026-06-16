@@ -154,38 +154,36 @@ const ExperienceSection = () => {
 
         {/* Achievements */}
         <div>
-          <h3 className="font-display text-xs text-secondary tracking-widest mb-3">🏆 ACHIEVEMENTS</h3>
-          <div className="grid sm:grid-cols-3 gap-3">
+          <h3 className="font-display text-xs text-secondary tracking-widest mb-3 flex items-center gap-2">
+            🏆 ACHIEVEMENTS
+          </h3>
+          <div className="grid sm:grid-cols-3 gap-4">
             {achievements.map((a, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-                className="border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors group relative cursor-pointer"
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_15px_rgba(34,197,94,0.1)] transition-all duration-300 rounded flex flex-col group"
               >
-                <div className="relative h-28 overflow-hidden">
+                <div className="relative h-36 overflow-hidden shrink-0 bg-black/20">
                   <img
                     src={a.image}
                     alt={a.text}
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-500 group-hover:h-full"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-102 transition-all duration-500"
                     style={{ objectPosition: a.objectPos || "top" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent group-hover:opacity-0 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-2 group-hover:opacity-0 transition-opacity duration-300">
-                    <p className="text-[10px] font-mono text-primary leading-tight">
-                      <span className="text-secondary">[+]</span> {a.text}
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                 </div>
-                <div className="absolute inset-0 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/90 overflow-y-auto">
-                  <div className="h-20 shrink-0 overflow-hidden">
-                    <img src={a.image} alt={a.text} className="w-full h-full object-cover" style={{ objectPosition: a.objectPos || "top" }} />
-                  </div>
-                  <div className="p-3 flex-1">
-                    <h4 className="text-[10px] font-mono text-primary mb-1.5 font-semibold">{a.text}</h4>
-                    <p className="text-[9px] font-mono text-card-foreground/80 leading-relaxed">{a.detail}</p>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xs font-bold font-mono text-primary mb-2 tracking-wide group-hover:neon-text transition-all leading-snug">
+                      [+] {a.text}
+                    </h4>
+                    <p className="text-[10px] md:text-[11px] font-mono text-muted-foreground leading-relaxed">
+                      {a.detail}
+                    </p>
                   </div>
                 </div>
               </motion.div>
