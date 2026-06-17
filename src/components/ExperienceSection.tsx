@@ -128,25 +128,39 @@ const ExperienceSection = () => {
           <h3 className="font-display text-xs text-secondary tracking-widest mb-3 flex items-center gap-2">
             <Award className="w-3.5 h-3.5" /> CERTIFICATIONS
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="border border-border bg-card p-3 flex items-center justify-between gap-2 hover:border-primary/30 transition-colors"
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_15px_rgba(34,197,94,0.1)] transition-all duration-300 rounded flex flex-col group cursor-pointer"
+                onClick={() => setViewCert(cert)}
               >
-                <p className="text-[10px] font-mono text-card-foreground leading-tight flex-1">
-                  <span className="text-primary mr-1">→</span> {cert.name}
-                </p>
-                <button
-                  onClick={() => setViewCert(cert)}
-                  className="shrink-0 text-[9px] font-mono border border-primary/40 text-primary px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-1"
-                >
-                  <Eye className="w-3 h-3" /> View
-                </button>
+                {/* Certificate Preview Image */}
+                <div className="relative h-32 w-full overflow-hidden bg-black/40 border-b border-border/50 shrink-0">
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-102 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+                    <span className="text-[10px] font-mono border border-primary text-primary px-3 py-1 bg-background/90 rounded shadow-md flex items-center gap-1.5">
+                      <Eye className="w-3 h-3" /> View Large
+                    </span>
+                  </div>
+                </div>
+
+                {/* Certificate Title */}
+                <div className="p-3 flex-1 flex flex-col justify-between">
+                  <p className="text-[11px] font-mono text-card-foreground leading-snug group-hover:text-primary transition-colors flex items-start gap-1">
+                    <span className="text-primary mt-0.5 select-none">→</span>
+                    <span className="flex-1">{cert.name}</span>
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
