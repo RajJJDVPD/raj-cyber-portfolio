@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Shield, Terminal, ChevronDown, Download } from "lucide-react";
+import { Terminal, ChevronDown, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePic from "@/assets/profile.jpg";
 
 const HeroSection = () => {
   return (
@@ -14,12 +15,22 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6 shrink-0"
         >
-          <Shield className="w-16 h-16 text-primary mx-auto mb-4 drop-shadow-[0_0_15px_hsl(120,100%,50%,0.5)]" />
+          {/* Pulsing neon halo */}
+          <div className="absolute inset-0 rounded-full border border-primary/40 animate-ping opacity-20" />
+          
+          {/* Circular avatar wrapper */}
+          <div className="w-full h-full rounded-full border border-primary p-1 bg-background/80 overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.25)] hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] transition-shadow duration-300">
+            <img 
+              src={profilePic} 
+              alt="Yarra Rajkumar" 
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
         </motion.div>
 
         <motion.div
