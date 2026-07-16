@@ -245,15 +245,19 @@ const SecurityResearchSection = () => {
                       {categoryFindings.length > 1 ? "s" : ""})
                     </motion.h3>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                     <div className="grid md:grid-cols-2 gap-4">
                       {categoryFindings.map((finding, idx) => {
                         let severityColor = "text-cyan-400 border-cyan-500/30 bg-cyan-950/20";
+                        let severityBorder = "border-l-cyan-500";
                         if (finding.severity === "Critical") {
                           severityColor = "text-red-400 border-red-500/30 bg-red-950/20";
+                          severityBorder = "border-l-red-500";
                         } else if (finding.severity === "High") {
                           severityColor = "text-orange-400 border-orange-500/30 bg-orange-950/20";
+                          severityBorder = "border-l-orange-500";
                         } else if (finding.severity === "Medium") {
                           severityColor = "text-yellow-400 border-yellow-500/30 bg-yellow-950/20";
+                          severityBorder = "border-l-yellow-500";
                         }
 
                         return (
@@ -263,7 +267,7 @@ const SecurityResearchSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: idx * 0.05 }}
-                            className="border border-purple-500/20 bg-card/40 hover:bg-card/70 hover:border-purple-400/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] transition-all duration-300 p-4 flex flex-col justify-between rounded group relative overflow-hidden"
+                            className={`border border-purple-500/20 border-l-4 ${severityBorder} bg-card/50 hover:bg-card/85 hover:border-purple-400/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.12)] transition-all duration-300 p-4 flex flex-col justify-between rounded group relative overflow-hidden`}
                           >
                             <div>
                               {/* Card Header */}
@@ -279,10 +283,10 @@ const SecurityResearchSection = () => {
                               </div>
 
                               {/* Card Body */}
-                              <h4 className="text-xs font-bold font-mono text-foreground group-hover:text-purple-300 transition-colors mb-1">
+                              <h4 className="text-xs font-bold font-mono text-foreground group-hover:text-purple-300 transition-colors mb-1.5 leading-snug">
                                 {finding.title}
                               </h4>
-                              <div className="flex gap-4 text-[9px] text-muted-foreground font-mono mb-2">
+                              <div className="flex gap-4 text-[9px] text-muted-foreground font-mono mb-3">
                                 <span>
                                   Type: <span className="text-purple-400">{finding.vulnerabilityType}</span>
                                 </span>
@@ -293,26 +297,32 @@ const SecurityResearchSection = () => {
                               <p className="text-[10px] text-muted-foreground font-mono leading-relaxed mb-4">
                                 {finding.summary}
                               </p>
+
+                              {/* Simplified Non-Tech explanation block directly on the card */}
+                              <div className="bg-purple-950/20 border border-purple-500/5 p-3 rounded font-mono text-[9px] text-purple-300/90 leading-relaxed mb-4 shadow-[inset_0_0_10px_rgba(168,85,247,0.03)]">
+                                <span className="text-purple-400 font-bold block mb-1">💡 IN SIMPLE TERMS</span>
+                                {finding.details.simplifiedExplanation}
+                              </div>
                             </div>
 
                             {/* Tags & Action Button */}
-                            <div className="space-y-3 pt-2 border-t border-purple-950/30">
+                            <div className="space-y-3 pt-3 border-t border-purple-950/20">
                               <div className="flex flex-wrap gap-1">
                                 {finding.tags.map((tag) => (
                                   <span
                                     key={tag}
-                                    className="text-[8px] font-mono px-1.5 py-0.5 bg-purple-950/20 text-purple-400 border border-purple-950/50 flex items-center gap-0.5 rounded-sm"
+                                    className="text-[8px] font-mono px-1.5 py-0.5 bg-purple-950/30 text-purple-400 border border-purple-950/60 flex items-center gap-0.5 rounded-sm"
                                   >
-                                    <Tag className="w-2 h-2" /> {tag}
+                                    <Tag className="w-2.5 h-2.5" /> {tag}
                                   </span>
                                 ))}
                               </div>
 
                               <Link
                                 to={`/research/${finding.slug}`}
-                                className="w-full inline-flex justify-center items-center gap-1.5 text-[10px] font-mono border border-purple-500/40 text-purple-400 hover:text-white hover:bg-purple-600 hover:border-purple-500 px-3 py-1.5 transition-all duration-300 rounded"
+                                className="w-full inline-flex justify-center items-center gap-1.5 text-[10px] font-mono border border-purple-500/40 text-purple-400 hover:text-white hover:bg-purple-600 hover:border-purple-500 px-3 py-1.5 transition-all duration-300 rounded shadow-sm"
                               >
-                                <Eye className="w-3 h-3" /> [ View Research ]
+                                <Eye className="w-3.5 h-3.5" /> [ View Technical Report ]
                               </Link>
                             </div>
                           </motion.div>

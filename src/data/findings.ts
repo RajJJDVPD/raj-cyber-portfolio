@@ -146,6 +146,30 @@ export const findings: Finding[] = [
     }
   },
   {
+    id: "XSS-002",
+    category: "Cross-Site Scripting",
+    severity: "High",
+    date: "11 July 2026",
+    vulnerabilityType: "Reflected XSS",
+    title: "Reflected XSS via Search Highlighting Bypass",
+    summary: "User-controlled input is reflected directly inside HTML search highlighting tags without output encoding, enabling escape sequences and arbitrary script execution.",
+    tags: ["XSS", "Reflected XSS", "HTML Injection", "Bypass"],
+    slug: "reflected-xss-highlighting",
+    details: {
+      executiveSummary: "A Reflected Cross-Site Scripting (XSS) vulnerability was identified in the search highlighting module. The web application incorporates the query string parameter directly into HTML tags (specifically <em>) without encoding, allowing tag breaking and script execution.",
+      vulnerabilityOverview: "The search string is dynamically rendered within a text highlighting structure using <em> tags. Because parameters are not sanitized or encoded, inputting a closing tag (</em>) terminates the text element and permits injection of active script elements (<script>).",
+      discoveryMethodology: "1. Visited the search endpoint.\n2. Injected payload: </em><script>alert(1)</script> via the 'search_form[search_string]' GET parameter.\n3. Verified in the source DOM that the injected script broke out of the <em> block and executed standard alerts in the browser.",
+      securityImpact: "Allows attackers to run arbitrary client-side scripts, conduct credentials harvesting, spoof interface pages, or hijack user session tokens.",
+      responsibleDisclosureStatus: "Reported to the vendor security contact. No response has been received to date.",
+      lessonsLearned: "All user inputs reflected in HTML must be encoded (HTML entity escaping) before rendering, regardless of whether they are displayed as standard text or inside specific highlighting tags.",
+      references: [
+        "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+        "OWASP Top 10: A03:2021 - Injection"
+      ],
+      simplifiedExplanation: "When you search for an item, the website highlights the word you typed inside a text tag. By typing a closing tag (</em>) followed by script commands, the browser is tricked into running those commands instead of displaying them as plain text."
+    }
+  },
+  {
     id: "SQLI-001",
     category: "SQL Injection",
     severity: "High",
