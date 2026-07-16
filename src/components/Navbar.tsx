@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Shield, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Security Research", href: "#security-research" },
+  { label: "Publications", href: "/publications", isRoute: true },
   { label: "Experience", href: "#experience" },
   { label: "Activities", href: "#activities" },
   { label: "Contact", href: "#contact" },
@@ -44,15 +45,25 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={isHome ? l.href : `/${l.href}`}
-              className="text-muted-foreground text-xs font-mono hover:text-primary transition-colors uppercase tracking-wider"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) => 
+            l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-muted-foreground text-xs font-mono hover:text-primary transition-colors uppercase tracking-wider"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={isHome ? l.href : `/${l.href}`}
+                className="text-muted-foreground text-xs font-mono hover:text-primary transition-colors uppercase tracking-wider"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <a
             href="/rajkumar_resume.pdf"
             download
@@ -78,16 +89,27 @@ const Navbar = () => {
             className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={isHome ? l.href : `/${l.href}`}
-                  onClick={() => setOpen(false)}
-                  className="text-muted-foreground text-sm font-mono hover:text-primary transition-colors"
-                >
-                  {">"} {l.label}
-                </a>
-              ))}
+              {navLinks.map((l) => 
+                l.isRoute ? (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    onClick={() => setOpen(false)}
+                    className="text-muted-foreground text-sm font-mono hover:text-primary transition-colors"
+                  >
+                    {">"} {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={l.href}
+                    href={isHome ? l.href : `/${l.href}`}
+                    onClick={() => setOpen(false)}
+                    className="text-muted-foreground text-sm font-mono hover:text-primary transition-colors"
+                  >
+                    {">"} {l.label}
+                  </a>
+                )
+              )}
               <a
                 href="/rajkumar_resume.pdf"
                 download
