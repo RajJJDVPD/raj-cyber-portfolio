@@ -8,7 +8,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Publications", href: "/publications", isRoute: true },
+  { label: "Publications", href: "#publications" },
   { label: "Security Research", href: "#security-research" },
   { label: "Experience", href: "#experience" },
   { label: "Activities", href: "#activities" },

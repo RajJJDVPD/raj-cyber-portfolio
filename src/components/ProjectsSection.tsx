@@ -20,7 +20,7 @@ const projects = [
     tech: ["Flask", "HTML", "YARA"],
     icon: "🔬",
     image: projectCyberX,
-    link: "https://cyberx-malware-scanner.onrender.com/",
+    link: "https://cyber-x-malware-scanner.vercel.app/",
     isGithub: false,
   },
   {
