@@ -29,7 +29,7 @@ const AboutSection = () => {
               I'm Yarra Rajkumar — a B.Tech Cyber Security student at KIET and an active **Security Researcher** specializing in web application penetration testing, vulnerability discovery, and ethical hacking. I actively analyze web systems, discover critical security flaws, and coordinate responsible disclosures to help secure digital environments.
             </p>
             <p className="text-card-foreground leading-relaxed text-sm">
-              I have discovered and responsibly reported **13 security vulnerabilities**, including critical UNION-based SQL injections exposing administrator credentials, and high-impact business logic flaws like price manipulation and checkout bypasses. My hands-on background includes security internships with Palo Alto Networks, Redynox, Zscaler, and the **Cyber Crime Department of the Vizag Police**.
+              I have discovered and responsibly reported **14 security vulnerabilities**, including critical UNION-based SQL injections exposing administrator credentials, and high-impact business logic flaws like price manipulation and checkout bypasses. My hands-on background includes security internships with Palo Alto Networks, Redynox, Zscaler, and the **Cyber Crime Department of the Vizag Police**.
             </p>
 
             <div className="space-y-3 text-sm">
@@ -61,7 +61,7 @@ const AboutSection = () => {
   "name": "Yarra Rajkumar",
   "role": "Security Researcher & Cybersecurity Student",
   "education": "B.Tech CSE (Cyber Security)",
-  "vulnerabilities_reported": 13,
+  "vulnerabilities_reported": 14,
   "specialties": [
     "Web Application Pentesting",
     "Business Logic Auditing",
