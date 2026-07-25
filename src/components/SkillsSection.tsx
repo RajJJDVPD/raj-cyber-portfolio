@@ -2,24 +2,27 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "SECURITY_TOOLS",
+    title: "Web Security",
     icon: "🛡️",
-    skills: ["Nmap", "Wireshark", "Hashcat", "YARA", "Burp Suite", "Sqlmap", "John the Ripper", "BeEF Framework", "Volatility (Basic)"],
+    skills: [
+      "Burp Suite",
+      "OWASP Top 10",
+      "PortSwigger",
+      "SQL Injection",
+      "XSS",
+      "Vulnerability Assessment",
+      "Network Scanning & Recon",
+    ],
   },
   {
-    title: "PROGRAMMING",
+    title: "Programming",
     icon: "💻",
-    skills: ["Python (Automation + Security)", "C (Basics)", "HTML", "CSS", "Flask", "Tkinter (GUI)", "JavaScript (Basic)"],
+    skills: ["Python", "Flask", "React", "HTML & CSS", "JavaScript"],
   },
   {
-    title: "CYBER_DOMAINS",
-    icon: "🔐",
-    skills: ["Ethical Hacking", "Network Scanning & Recon", "Malware Analysis (YARA)", "Digital Forensics", "Web Security (XSS, SQLi)", "Vulnerability Assessment", "OSINT (Basic)"],
-  },
-  {
-    title: "PLATFORMS_&_ENV",
+    title: "Infrastructure",
     icon: "⚙️",
-    skills: ["Kali Linux", "Windows", "VMware / VirtualBox", "VS Code", "Git & GitHub", "Render (Deployment)"],
+    skills: ["Linux", "Git", "VMware", "VirtualBox", "VS Code"],
   },
 ];
 
@@ -39,7 +42,7 @@ const SkillsSection = () => {
           <div className="h-px bg-gradient-to-r from-primary/50 to-transparent mb-8" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-3 gap-4">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -47,23 +50,25 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="border border-border bg-card p-5 hover:border-primary/50 transition-all duration-300 group"
+              className="border border-border bg-card p-5 hover:border-primary/50 transition-all duration-300 group neon-border flex flex-col justify-between"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-lg">{cat.icon}</span>
-                <h3 className="font-display text-xs text-primary tracking-wider group-hover:neon-text transition-all">
-                  {cat.title}
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-xs font-mono px-2 py-1 border border-border text-muted-foreground bg-muted hover:border-primary/50 hover:text-primary transition-all"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lg">{cat.icon}</span>
+                  <h3 className="font-display text-xs text-primary tracking-wider group-hover:neon-text transition-all uppercase">
+                    {cat.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-mono px-2 py-1 border border-border text-muted-foreground bg-muted hover:border-primary/50 hover:text-primary transition-all"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

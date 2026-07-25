@@ -26,13 +26,10 @@ const AboutSection = () => {
             className="space-y-4"
           >
             <p className="text-card-foreground leading-relaxed text-sm">
-              I'm Yarra Rajkumar — a B.Tech Cyber Security student at KIET and an active **Security Researcher** specializing in web application penetration testing, vulnerability discovery, and ethical hacking. I actively analyze web systems, discover critical security flaws, and coordinate responsible disclosures to help secure digital environments.
-            </p>
-            <p className="text-card-foreground leading-relaxed text-sm">
-              I have discovered and responsibly reported **14 security vulnerabilities**, including critical UNION-based SQL injections exposing administrator credentials, and high-impact business logic flaws like price manipulation and checkout bypasses. My hands-on background includes security internships with Palo Alto Networks, Redynox, Zscaler, and the **Cyber Crime Department of the Vizag Police**.
+              I focus on Web Application Security and Vulnerability Assessment. My experience includes completing 50+ PortSwigger labs, reporting 14+ vulnerabilities through responsible disclosure, developing security tools, and gaining hands-on experience through internships.
             </p>
 
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-sm pt-2">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
                 <span>Kakinada, Andhra Pradesh, India</span>
@@ -59,14 +56,14 @@ const AboutSection = () => {
             <pre className="text-card-foreground whitespace-pre-wrap">
 {`{
   "name": "Yarra Rajkumar",
-  "role": "Security Researcher & Cybersecurity Student",
+  "role": "Junior Application Security Engineer",
   "education": "B.Tech CSE (Cyber Security)",
   "vulnerabilities_reported": 14,
   "specialties": [
     "Web Application Pentesting",
-    "Business Logic Auditing",
-    "SQL Injection & XSS",
-    "Digital Forensics"
+    "Vulnerability Assessment & VAPT",
+    "OWASP Top 10 Auditing",
+    "Security Automation (Python)"
   ],
   "certifications": [
     "Google Foundations of Cybersecurity",

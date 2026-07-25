@@ -17,6 +17,30 @@ const SecurityResearchSection = () => {
   const [selectedSeverity, setSelectedSeverity] = useState("All");
   const [selectedYear, setSelectedYear] = useState("All");
   const [sortBy, setSortBy] = useState("newest");
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
+  const handleCardClick = (cardName: string) => {
+    if (activeCard === cardName) {
+      setActiveCard(null);
+      setSelectedCategory("All");
+      setSearchQuery("");
+    } else {
+      setActiveCard(cardName);
+      if (cardName === "XSS") {
+        setSelectedCategory("Cross-Site Scripting");
+        setSearchQuery("");
+      } else if (cardName === "Business Logic") {
+        setSelectedCategory("Business Logic Vulnerability");
+        setSearchQuery("");
+      } else if (cardName === "SQL Injection") {
+        setSelectedCategory("SQL Injection");
+        setSearchQuery("Error-Based");
+      } else if (cardName === "Union SQLi") {
+        setSelectedCategory("SQL Injection");
+        setSearchQuery("UNION-Based");
+      }
+    }
+  };
 
   // Dynamic Statistics
   const stats = useMemo(() => {
@@ -103,34 +127,53 @@ const SecurityResearchSection = () => {
           </p>
         </motion.div>
 
-        {/* Stats Panel */}
+        {/* Category Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
-            { label: "Total Findings", value: stats.total, icon: Database, color: "text-purple-400 border-purple-500/30" },
-            { label: "Business Logic", value: stats.businessLogic, icon: ShieldAlert, color: "text-blue-400 border-blue-500/30" },
-            { label: "XSS Findings", value: stats.xss, icon: Terminal, color: "text-indigo-400 border-indigo-500/30" },
-            { label: "High Severity", value: stats.highSeverity, icon: ShieldAlert, color: "text-violet-400 border-violet-500/30" },
-          ].map((item, index) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ y: -2 }}
-              className={`border ${item.color} bg-card/40 backdrop-blur-md p-4 flex flex-col justify-between hover:bg-card/70 transition-all duration-300 rounded shadow-md group`}
-            >
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider leading-none">
-                  {item.label}
-                </span>
-                <item.icon className={`w-4 h-4 ${item.color.split(" ")[0]} opacity-70 group-hover:opacity-100 transition-opacity`} />
-              </div>
-              <div className={`text-2xl font-bold font-display ${item.color.split(" ")[0]} tracking-tight`}>
-                {item.value}
-              </div>
-            </motion.div>
-          ))}
+            { name: "XSS", count: 2, status: "Reported", color: "text-indigo-400 border-indigo-500/30 bg-indigo-500/5 hover:border-indigo-400/50 shadow-[0_0_15px_rgba(99,102,241,0.06)]" },
+            { name: "SQL Injection", count: 4, status: "Reported", color: "text-blue-400 border-blue-500/30 bg-blue-500/5 hover:border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.06)]" },
+            { name: "Union SQLi", count: 4, status: "Reported", color: "text-violet-400 border-violet-500/30 bg-violet-500/5 hover:border-violet-400/50 shadow-[0_0_15px_rgba(139,92,246,0.06)]" },
+            { name: "Business Logic", count: 4, status: "Reported", color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-400/50 shadow-[0_0_15px_rgba(16,185,129,0.06)]" },
+          ].map((item, index) => {
+            const isActive = activeCard === item.name;
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -3 }}
+                onClick={() => handleCardClick(item.name)}
+                className={`border ${item.color} ${isActive ? "border-purple-500 bg-purple-950/20 shadow-[0_0_20px_rgba(168,85,247,0.25)]" : ""} cursor-pointer p-4 flex flex-col justify-between transition-all duration-300 rounded shadow-md group`}
+              >
+                <div className="flex justify-between items-start mb-2 font-mono text-[10px] tracking-wider uppercase leading-none">
+                  <span className={isActive ? "text-purple-300 font-bold" : "text-muted-foreground"}>
+                    {item.name}
+                  </span>
+                  <span className="text-[9px] text-green-400 font-bold border border-green-500/30 px-1 bg-green-500/5 rounded">
+                    {item.status}
+                  </span>
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="text-2xl font-bold font-display tracking-tight text-foreground">
+                    {item.count}
+                  </div>
+                  <div className="text-[9px] font-mono text-muted-foreground group-hover:text-foreground/80 leading-none">
+                    Findings Discovered
+                  </div>
+                </div>
+                
+                {/* Visual filter active indicator */}
+                {isActive && (
+                  <div className="mt-3 text-[9px] font-mono text-purple-400 text-center border-t border-purple-500/20 pt-2 animate-pulse font-bold">
+                    Filter Active ✖
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Search & Filter Controls */}

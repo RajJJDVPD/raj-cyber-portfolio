@@ -58,44 +58,67 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-lg md:text-xl text-secondary font-mono mb-2"
+          className="text-lg md:text-2xl text-secondary font-mono mb-2"
         >
-          Cybersecurity Specialist
+          Junior Application Security Engineer
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-          className="text-muted-foreground font-mono text-sm md:text-base max-w-2xl mx-auto mb-8"
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="text-muted-foreground font-mono text-sm md:text-base max-w-2xl mx-auto mb-6 tracking-wide"
         >
-          Ethical Hacking • Digital Forensics • Malware Analysis • Network Security
+          Web Application Security • VAPT • Security Research
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mb-10 text-left font-mono text-xs"
+        >
+          {[
+            "50+ PortSwigger Labs",
+            "14+ Responsible Disclosures",
+            "Junior Security Analyst Intern",
+            "Web Application Security",
+          ].map((text, idx) => (
+            <div key={idx} className="border border-primary/20 bg-primary/5 p-2.5 flex items-start gap-1.5 rounded shadow-sm hover:border-primary/45 transition-colors">
+              <span className="text-primary font-bold">✓</span>
+              <span className="text-muted-foreground leading-snug">{text}</span>
+            </div>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
-          className="flex gap-4 justify-center flex-wrap"
+          className="flex gap-4 justify-center items-center flex-wrap"
         >
           <a
             href="#projects"
-            className="px-6 py-3 border border-primary text-primary font-mono text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300 neon-border glitch-hover"
+            className="px-6 py-3 border border-primary text-primary font-mono text-sm hover:bg-primary/10 transition-all duration-300 neon-border glitch-hover"
           >
             {">"} View Projects
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 border border-secondary text-secondary font-mono text-sm hover:bg-secondary hover:text-secondary-foreground transition-all duration-300"
+            className="px-6 py-3 border border-secondary text-secondary font-mono text-sm hover:bg-secondary/10 transition-all duration-300"
           >
             {">"} Contact Me
           </a>
           <a
             href="/rajkumar_resume.pdf"
             download
-            className="px-6 py-3 bg-primary text-primary-foreground font-mono text-sm hover:bg-primary/80 transition-all duration-300 flex items-center gap-2 neon-border"
+            className="px-6 py-2 bg-primary text-primary-foreground font-mono text-sm hover:bg-primary/95 transition-all duration-300 flex flex-col items-center justify-center gap-0.5 neon-border text-center min-w-[160px]"
           >
-            <Download className="w-4 h-4" /> Download Resume
+            <span className="text-[10px] tracking-widest text-primary-foreground/75 uppercase leading-none">ATS Resume</span>
+            <span className="text-[9px] text-primary-foreground/60 leading-none">Updated July 2026</span>
+            <span className="flex items-center gap-1 mt-0.5 font-bold leading-none">
+              <Download className="w-3.5 h-3.5" /> Download PDF
+            </span>
           </a>
         </motion.div>
 
