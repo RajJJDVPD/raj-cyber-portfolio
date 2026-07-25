@@ -12,9 +12,11 @@ import internshipEthicalHacking from "@/assets/internship-ethical-hacking.jpg";
 import internshipNetworking from "@/assets/internship-networking.jpg";
 import internshipCybercrime from "@/assets/internship-cybercrime.jpg";
 import internshipRedynox from "@/assets/internship-redynox.jpg";
+import internshipLuminrex from "@/assets/internship-luminrex.png";
+import internshipCybercrimeFeatured from "@/assets/internship-cybercrime-featured.png";
 import certPaloalto from "@/assets/cert-paloalto.jpg";
 import certSaviynt from "@/assets/cert-saviynt.jpg";
-import certRedynox from "@/assets/cert-redynox.jpg";
+import certRedynox from "@/assets/cert-redynox.png";
 import certGoogleFoundations from "@/assets/cert-google-foundations.jpg";
 import certPlaceholder from "@/assets/cert-placeholder.jpg";
 import achievementDrone from "@/assets/achievement-drone.jpg";
@@ -23,29 +25,48 @@ import achievementCybercrime from "@/assets/achievement-cybercrime.jpg";
 
 const internships = [
   {
-    title: "Cybersecurity Internship",
-    org: "Palo Alto Networks (AICTE Cohort 9)",
-    image: internshipPaloalto,
-  },
-  {
-    title: "Ethical Hacking Internship",
-    org: "AICTE (Cohort 10)",
-    image: internshipEthicalHacking,
-  },
-  {
-    title: "Networking Internship",
-    org: "Zscaler (AICTE Cohort 11)",
-    image: internshipNetworking,
+    title: "Junior Security Analyst",
+    org: "Luminrex",
+    image: internshipLuminrex,
+    duration: "6 Months",
+    date: "April 2026 – September 2026",
+    status: "Present / Ongoing",
+    featured: true,
+    desc: "Active participation in application vulnerability assessment, penetration testing, securing cloud interfaces, and implementing custom scanning scripts.",
   },
   {
     title: "Cyber Crime Dept. Internship",
     org: "Vizag Police — 2 weeks",
-    image: internshipCybercrime,
+    image: internshipCybercrimeFeatured,
+    duration: "2 Weeks",
+    date: "April 2025",
+    status: "High Impact",
+    featured: true,
+    desc: "Assisted forensics experts in logging security details, forensic analysis of logs, and auditing real-world cyber crime and infraction cases.",
   },
   {
     title: "Cybersecurity Internship",
     org: "Redynox — Jul–Aug 2025",
     image: internshipRedynox,
+    duration: "2 Months",
+  },
+  {
+    title: "Networking Internship",
+    org: "Zscaler (AICTE Cohort 11)",
+    image: internshipNetworking,
+    duration: "Cohort 11",
+  },
+  {
+    title: "Ethical Hacking Internship",
+    org: "AICTE (Cohort 10)",
+    image: internshipEthicalHacking,
+    duration: "Cohort 10",
+  },
+  {
+    title: "Cybersecurity Internship",
+    org: "Palo Alto Networks (AICTE Cohort 9)",
+    image: internshipPaloalto,
+    duration: "Cohort 9",
   },
 ];
 
@@ -100,26 +121,73 @@ const ExperienceSection = () => {
           <h3 className="font-display text-xs text-secondary tracking-widest mb-3 flex items-center gap-2">
             <Briefcase className="w-3.5 h-3.5" /> INTERNSHIPS
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {internships.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="border border-border bg-card overflow-hidden hover:border-primary/50 transition-colors group"
-              >
-                <div className="relative h-20 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                </div>
-                <div className="p-2">
-                  <h4 className="text-[10px] text-card-foreground font-mono leading-tight">{item.title}</h4>
-                  <p className="text-[9px] text-secondary">{item.org}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {internships.map((item, i) => {
+              const isFeatured = item.featured;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className={`border overflow-hidden transition-all duration-300 group flex flex-col justify-between ${
+                    isFeatured
+                      ? "col-span-1 sm:col-span-2 border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 shadow-[0_0_20px_rgba(34,197,94,0.05)] md:flex-row md:h-36"
+                      : "border-border bg-card/60 hover:border-primary/30 h-full"
+                  }`}
+                >
+                  {/* Image Container */}
+                  <div className={`relative overflow-hidden shrink-0 ${
+                    isFeatured ? "h-28 md:h-full md:w-[35%] w-full" : "h-20 w-full"
+                  }`}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-85 group-hover:scale-103 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                    {isFeatured && (
+                      <span className={`absolute top-2 left-2 text-[8px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm shadow-md border ${
+                        item.status === "Present / Ongoing" 
+                          ? "bg-emerald-500/90 text-background border-emerald-400"
+                          : "bg-blue-600/90 text-foreground border-blue-400"
+                      }`}>
+                        {item.status || "FEATURED"}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Info Container */}
+                  <div className="p-3 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex justify-between items-start gap-2 mb-1">
+                        <h4 className={`font-mono font-bold leading-tight ${isFeatured ? "text-xs text-primary" : "text-[10px] text-card-foreground"}`}>
+                          {item.title}
+                        </h4>
+                        {!isFeatured && item.duration && (
+                          <span className="text-[8px] font-mono text-muted-foreground shrink-0">{item.duration}</span>
+                        )}
+                      </div>
+                      <p className={`font-semibold ${isFeatured ? "text-[10px] text-foreground mb-1.5" : "text-[9px] text-secondary"}`}>
+                        {item.org}
+                      </p>
+                      {isFeatured && item.desc && (
+                        <p className="text-[9px] text-muted-foreground font-mono leading-relaxed mb-2">
+                          {item.desc}
+                        </p>
+                      )}
+                    </div>
+                    {isFeatured && (
+                      <div className="flex justify-between items-center text-[8px] font-mono text-muted-foreground pt-1.5 border-t border-border/20">
+                        <span>Duration: {item.duration}</span>
+                        <span className="text-secondary">{item.date}</span>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -136,7 +204,7 @@ const ExperienceSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_15px_rgba(34,197,94,0.1)] transition-all duration-300 rounded flex flex-col group cursor-pointer"
+                className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] border-l-2 border-l-primary/40 hover:border-l-primary transition-all duration-300 rounded flex flex-col group cursor-pointer"
                 onClick={() => setViewCert(cert)}
               >
                 {/* Certificate Preview Image */}

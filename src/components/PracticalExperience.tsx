@@ -3,6 +3,12 @@ import { Terminal, Shield, Briefcase, Building, GraduationCap, ArrowRight, Arrow
 
 const milestones = [
   {
+    title: "Junior Security Analyst – Luminrex",
+    desc: "Active 6-month ongoing application security internship focusing on web application auditing, penetration testing, and vulnerability remediation advice.",
+    icon: Briefcase,
+    color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/5 shadow-[0_0_15px_rgba(16,185,129,0.1)]",
+  },
+  {
     title: "50+ PortSwigger Labs",
     desc: "Rigorous hands-on labs covering OWASP Top 10 (SQLi, XSS, CSRF, SSRF, JWT, Access Control) in simulated target networks.",
     icon: Terminal,
@@ -15,7 +21,7 @@ const milestones = [
     color: "text-purple-400 border-purple-500/30 bg-purple-500/5 shadow-[0_0_15px_rgba(168,85,247,0.1)]",
   },
   {
-    title: "Junior Security Analyst",
+    title: "Cybersecurity Intern",
     desc: "Professional security training, threat analysis, and hands-on auditing through internships with Redynox and AICTE programs.",
     icon: Briefcase,
     color: "text-blue-400 border-blue-500/30 bg-blue-500/5 shadow-[0_0_15px_rgba(59,130,246,0.1)]",

@@ -10,6 +10,13 @@ const stats = [
     color: "text-primary border-primary/25 bg-primary/5",
   },
   {
+    value: "22",
+    label: "CyLab CTFs",
+    icon: Shield,
+    description: "Challenges solved in CyLab Security Academy",
+    color: "text-emerald-400 border-emerald-500/25 bg-emerald-500/5",
+  },
+  {
     value: "14+",
     label: "Responsible Disclosures",
     icon: Shield,
@@ -51,7 +58,7 @@ const StatsSection = () => {
     <section className="py-12 px-4 border-y border-border/30 bg-background/50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.02),transparent)] pointer-events-none" />
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (

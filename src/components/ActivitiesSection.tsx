@@ -1,5 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Activity } from "lucide-react";
+import { Activity, Eye } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import activityNcc from "@/assets/activity-ncc.jpg";
 import activityScuba from "@/assets/activity-scuba.jpg";
 import activityShip from "@/assets/activity-ship.jpg";
@@ -40,6 +47,8 @@ const activities = [
 ];
 
 const ActivitiesSection = () => {
+  const [viewActivity, setViewActivity] = useState<{ title: string; image: string } | null>(null);
+
   return (
     <section id="activities" className="py-20 px-4 relative">
       <div className="max-w-4xl mx-auto">
@@ -64,29 +73,48 @@ const ActivitiesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               whileHover={{ scale: 1.04 }}
-              className="border border-border bg-card overflow-hidden hover:border-primary/50 transition-all duration-300 group cursor-default"
+              className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] border-l-2 border-l-primary/40 hover:border-l-primary transition-all duration-300 rounded flex flex-col group cursor-pointer"
+              onClick={() => setViewActivity(item)}
             >
-              <div className="relative h-36 overflow-hidden">
+              {/* Activity Image Overlay */}
+              <div className="relative h-36 overflow-hidden bg-black/20 shrink-0">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-500 group-hover:scale-105 transition-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-              </div>
-              <div className="p-3">
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <Activity className="w-3 h-3 text-primary" />
-                  <h3 className="font-display text-xs text-primary tracking-wider">{item.title}</h3>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+                  <span className="text-[10px] font-mono border border-primary text-primary px-3 py-1 bg-background/90 rounded shadow-md flex items-center gap-1.5">
+                    <Eye className="w-3 h-3" /> View Large
+                  </span>
                 </div>
-                <p className="text-[10px] font-mono text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <Activity className="w-3.5 h-3.5 text-primary" />
+                    <h3 className="font-display text-xs text-primary tracking-wider uppercase group-hover:neon-text transition-all">{item.title}</h3>
+                  </div>
+                  <p className="text-[10px] md:text-[11px] font-mono text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Activity Image Viewer Dialog */}
+      <Dialog open={!!viewActivity} onOpenChange={() => setViewActivity(null)}>
+        <DialogContent className="max-w-lg bg-card border-border">
+          <DialogHeader>
+            <DialogTitle className="text-sm font-mono text-primary">{viewActivity?.title}</DialogTitle>
+          </DialogHeader>
+          <img src={viewActivity?.image} alt={viewActivity?.title} className="w-full rounded border border-border max-h-[70vh] object-contain bg-black/50" />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

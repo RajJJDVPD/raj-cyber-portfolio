@@ -59,6 +59,7 @@ const AboutSection = () => {
   "role": "Junior Application Security Engineer",
   "education": "B.Tech CSE (Cyber Security)",
   "vulnerabilities_reported": 14,
+  "cylab_ctfs_completed": 22,
   "specialties": [
     "Web Application Pentesting",
     "Vulnerability Assessment & VAPT",

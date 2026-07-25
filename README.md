@@ -8,6 +8,7 @@ Hi, I'm Y Rajkumar — a passionate Cyber Security student focused on building r
 🛡️ Ethical Hacking | Malware Analysis | Digital Forensics
 ⚡ Python Security Tool Developer
 🏆 Skill India Certified
+🎯 22 CTFs Completed in CyLab Security Academy (CMU)
 
 🌐 Live Portfolio
 

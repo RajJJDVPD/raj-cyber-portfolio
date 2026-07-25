@@ -5,6 +5,7 @@ import StatsSection from "@/components/StatsSection";
 import AboutSection from "@/components/AboutSection";
 import PracticalExperience from "@/components/PracticalExperience";
 import PortSwiggerProgress from "@/components/PortSwiggerProgress";
+import CyLabProgress from "@/components/CyLabProgress";
 import CurrentLearning from "@/components/CurrentLearning";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -31,9 +32,10 @@ const Index = () => {
         
         {/* Progress & Learning Dashboard Section */}
         <section id="progress-dashboard" className="py-16 px-4 relative bg-background/30">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="max-w-4xl lg:max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <PortSwiggerProgress />
+              <CyLabProgress />
               <CurrentLearning />
             </div>
           </div>
