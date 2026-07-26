@@ -38,7 +38,7 @@ const stats = [
     color: "text-yellow-400 border-yellow-500/25 bg-yellow-500/5",
   },
   {
-    value: "7+",
+    value: "8+",
     label: "Certifications",
     icon: Award,
     description: "Industry certified credentials",

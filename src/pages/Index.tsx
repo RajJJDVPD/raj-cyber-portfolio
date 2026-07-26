@@ -2,6 +2,7 @@ import MatrixRain from "@/components/MatrixRain";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
+import FeaturedCertification from "@/components/FeaturedCertification";
 import AboutSection from "@/components/AboutSection";
 import PracticalExperience from "@/components/PracticalExperience";
 import PortSwiggerProgress from "@/components/PortSwiggerProgress";
@@ -27,6 +28,7 @@ const Index = () => {
       <main className="relative z-10">
         <HeroSection />
         <StatsSection />
+        <FeaturedCertification />
         <AboutSection />
         <PracticalExperience />
         

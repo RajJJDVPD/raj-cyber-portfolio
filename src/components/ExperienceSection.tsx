@@ -18,10 +18,11 @@ import certPaloalto from "@/assets/cert-paloalto.jpg";
 import certSaviynt from "@/assets/cert-saviynt.jpg";
 import certRedynox from "@/assets/cert-redynox.png";
 import certGoogleFoundations from "@/assets/cert-google-foundations.jpg";
-import certPlaceholder from "@/assets/cert-placeholder.jpg";
+import nasscomCert from "@/assets/cert-nasscom-2026.png";
 import achievementDrone from "@/assets/achievement-drone.jpg";
 import achievementNccLecture from "@/assets/achievement-ncc-lecture.jpg";
 import achievementCybercrime from "@/assets/achievement-cybercrime.jpg";
+import achievementPlaceholder from "@/assets/achievement-placeholder.jpg";
 
 const internships = [
   {
@@ -71,12 +72,19 @@ const internships = [
 ];
 
 const certifications = [
+  {
+    name: "Cyber Security Professional",
+    org: "NASSCOM IT-ITeS SSC",
+    category: "Silver Category",
+    issued: "Issued: July 2026",
+    image: nasscomCert,
+    featured: true,
+  },
   { name: "Foundations of Cybersecurity – Google", image: certGoogleFoundations },
   { name: "Cybersecurity Essentials – Palo Alto Networks", image: certPaloalto },
   { name: "Saviynt Identity Security (ISAA) Certification", image: certSaviynt },
   { name: "Redynox Cybersecurity Internship Certificate (2025)", image: certRedynox },
-  { name: "IIFIS Certification (Globally Verified) – Pursuing", image: certPlaceholder },
-  { name: "NASSCOM Government Certification – Pursuing", image: certPlaceholder },
+  { name: "IIFIS Certification (Globally Verified) – Pursuing", image: achievementPlaceholder },
 ];
 
 const achievements = [
@@ -204,7 +212,7 @@ const ExperienceSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] border-l-2 border-l-primary/40 hover:border-l-primary transition-all duration-300 rounded flex flex-col group cursor-pointer"
+                className={`border border-border bg-card/60 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] border-l-2 border-l-primary/40 hover:border-l-primary transition-all duration-300 rounded flex flex-col group cursor-pointer ${cert.featured ? "sm:col-span-2 lg:col-span-3 bg-gradient-to-br from-card via-card to-primary/5" : ""}`}
                 onClick={() => setViewCert(cert)}
               >
                 {/* Certificate Preview Image */}
@@ -220,14 +228,28 @@ const ExperienceSection = () => {
                       <Eye className="w-3 h-3" /> View Large
                     </span>
                   </div>
+                  {cert.featured && (
+                    <span className="absolute top-2 left-2 text-[8px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm shadow-md border bg-emerald-500/90 text-background border-emerald-400">
+                      Featured
+                    </span>
+                  )}
                 </div>
 
                 {/* Certificate Title */}
                 <div className="p-3 flex-1 flex flex-col justify-between">
-                  <p className="text-[11px] font-mono text-card-foreground leading-snug group-hover:text-primary transition-colors flex items-start gap-1">
-                    <span className="text-primary mt-0.5 select-none">→</span>
-                    <span className="flex-1">{cert.name}</span>
-                  </p>
+                  <div className="space-y-1">
+                    <p className="text-[11px] font-mono text-card-foreground leading-snug group-hover:text-primary transition-colors flex items-start gap-1">
+                      <span className="text-primary mt-0.5 select-none">→</span>
+                      <span className="flex-1">{cert.name}</span>
+                    </p>
+                    {cert.featured && (
+                      <div className="text-[10px] text-muted-foreground font-mono space-y-0.5 pl-4">
+                        <p>{cert.org}</p>
+                        <p>{cert.category}</p>
+                        <p>{cert.issued}</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

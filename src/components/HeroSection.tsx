@@ -54,6 +54,18 @@ const HeroSection = () => {
           YARRA RAJKUMAR
         </motion.h1>
 
+        {/* Highlighted achievement badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mx-auto mb-3 inline-flex items-center gap-3 bg-gradient-to-r from-emerald-700/10 to-emerald-700/5 border border-emerald-600/20 rounded-full px-3 py-1 neon-border shadow-[0_8px_30px_rgba(34,197,94,0.06)]"
+        >
+          <span className="text-emerald-400 font-bold">🏆</span>
+          <span className="text-[13px] font-mono text-emerald-300 font-semibold animate-pulse">NEW – NASSCOM Certified Cyber Security Professional (July 2026)</span>
+          <span className="ml-2 px-2 py-0.5 text-[10px] bg-emerald-500/90 text-background rounded-full font-mono">Govt. Approved</span>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
